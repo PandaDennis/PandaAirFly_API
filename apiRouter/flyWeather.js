@@ -4,7 +4,7 @@ const router = express();
 const path = require('path');
 
 
-router.get('/flyWeather/sunriseAndSunset/:today', async function (req, res) {
+router.get('/flyWeather/sunriseAndSunset/:trtoday', async function (req, res) {
 
     var resJson;
     var sunData = [];
@@ -20,7 +20,7 @@ router.get('/flyWeather/sunriseAndSunset/:today', async function (req, res) {
             // handle error
             console.log(error);
         })
-    if(req.params['today'] != null && req.params['today'] == 'true'){
+    if(req.params['trtoday'] != null && req.params['trtoday'] == 'true'){
         for (var key in resJson.data) {
             
             if( new Date(resJson.data[key][0]).toISOString().slice(0, 10)  ==  new Date().toISOString().slice(0, 10) ){
@@ -35,7 +35,7 @@ router.get('/flyWeather/sunriseAndSunset/:today', async function (req, res) {
         }
 
     }
-    if(req.params['today'] != null && req.params['today'] == 'false'){
+    if(req.params['trtoday'] != null && req.params['trtoday'] == 'false'){
         for (var key in resJson.data) {
             sunData.push({
                 //"日期":tDate.toLocaleDateString("en-US",options),
