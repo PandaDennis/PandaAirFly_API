@@ -35,7 +35,7 @@ router.get('/flyWeather/sunriseAndSunset/:trtoday', async function (req, res) {
         }
 
     }
-    if(req.params['trtoday'] != null && req.params['trtoday'] == 'false'){
+    else if(req.params['trtoday'] != null && req.params['trtoday'] == 'false'){
         for (var key in resJson.data) {
             sunData.push({
                 //"日期":tDate.toLocaleDateString("en-US",options),
