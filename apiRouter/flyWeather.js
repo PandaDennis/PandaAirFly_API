@@ -55,6 +55,30 @@ router.get('/flyWeather/sunriseAndSunset/:trtoday', async function (req, res) {
 })
 
 
+router.get('/mapData', async function (req, res) {
+
+    var resJson;
+    var sunData = [];
+    var reqURL = 'https://esua.cad.gov.hk/web/droneMap/getData';
+    // console.log(reqURL);
+    // console.log(req.params['today']);
+    // data by HKO
+    await axios.get(reqURL)
+        .then(function (response) {
+            //console.log(response.data);
+            resJson = response.data;
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        })
+    
+    console.log(resJson.data.rfzFeatures);
+    
+    res.send(resJson.data.rfzFeatures);
+})
+
+
 
 
 
