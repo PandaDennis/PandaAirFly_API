@@ -50,7 +50,7 @@ router.get('/flyWeather/sunriseAndSunset/:trtoday', async function (req, res) {
         })
     }
     
-    
+    res.set('Access-Control-Allow-Origin', '*');
     res.send(sunData);
 })
 
